@@ -9,7 +9,7 @@ This template uses -
 
 ## Use
 
-### - Wallet
+### Wallet
 Add wallet.json to root of directory. <h4><strong>Make sure it is acknowledged by .gitignore!</strong></h4>
 ### Contract deployment test
 `yarn test`
