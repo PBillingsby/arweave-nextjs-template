@@ -1,13 +1,11 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import { useContext } from 'react'
 import { MainContext } from '../context'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
   const { arweave, warp } = useContext(MainContext)
-
   return (
     <div className={styles.container}>
       <Head>
@@ -17,6 +15,9 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
+        <h1 className="text-3xl text-green-300 font-bold">
+          Hello world!
+        </h1>
       </main>
     </div>
   )

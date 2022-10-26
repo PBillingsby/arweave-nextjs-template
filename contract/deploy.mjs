@@ -43,4 +43,5 @@ export async function deploy() {
 
     return { contractTxId, cachedValue }
 }
+
 deploy()

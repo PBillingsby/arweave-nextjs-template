@@ -25,7 +25,7 @@
     "**/*.tsx",
     "utils/index.ts",
     "contract/deploy.mjs",
-    "tests/index.mjs"
+    "tests/index.mjs",
   ],
   "exclude": [
     "node_modules"
