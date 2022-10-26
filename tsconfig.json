@@ -23,9 +23,10 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "utils/index.ts",
+    "utils/index.js",
     "contract/deploy.mjs",
     "tests/index.mjs",
+    "contract/contract.js"
   ],
   "exclude": [
     "node_modules"

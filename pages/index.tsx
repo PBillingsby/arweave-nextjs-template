@@ -6,6 +6,7 @@ import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
   const { arweave, warp } = useContext(MainContext)
+
   return (
     <div className={styles.container}>
       <Head>

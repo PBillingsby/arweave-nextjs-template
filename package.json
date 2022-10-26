@@ -11,7 +11,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "uvu ./tests",
-    "deploy": "arkb deploy dist --use-bundler https://node2.bundlr.network --wallet ./wallet.json",
+    "fund": "arkb fund-bundler --wallet ./wallet.json --use-bundler https://node2.bundlr.network",
+    "deploy": "arkb deploy out --use-bundler https://node2.bundlr.network --wallet ./wallet.json",
     "deploy-contract": "ts-node contract/deploy.mjs"
   },
   "dependencies": {
@@ -25,6 +26,7 @@
     "@types/node": "18.7.18",
     "@types/react": "18.0.20",
     "@types/react-dom": "18.0.6",
+    "arkb": "^1.1.61",
     "arlocal": "^1.1.58",
     "arweave-wallet-connector": "^0.0.31",
     "autoprefixer": "^10.4.12",

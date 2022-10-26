@@ -1,23 +1,25 @@
 import fs from 'fs'
-import { WarpFactory } from 'warp-contracts'
+import { WarpFactory, defaultCacheOptions } from 'warp-contracts'
 import * as dotenv from 'dotenv'
-import test from 'node:test'
 
 dotenv.config()
 
 export async function deploy() {
-    // Creating local || mainnet Warp instance
     const isLocal = process.env.WARP === "local"
-    const warp = isLocal ? WarpFactory.forLocal() : WarpFactory.forMainnet();
-
+    let warp
     // Creating test wallet || importing Arweave wallet from root
+    // Creating local || mainnet Warp instance
     let wallet
     if (isLocal) {
+        warp = WarpFactory.forLocal()
+
         const testWallet = await warp.testing.generateWallet()
-        console.log(testWallet)
         wallet = testWallet.jwk
     }
     else {
+        // Remove { ...defaultCacheOptions, inMemory: true } for logs and cache files
+        warp = WarpFactory.forMainnet({ ...defaultCacheOptions, inMemory: true });
+
         wallet = JSON.parse(fs.readFileSync('./wallet.json', 'utf-8'))
     }
     // Importing the smart contract
@@ -37,7 +39,6 @@ export async function deploy() {
     await contract.writeInteraction({
         function: 'click'
     })
-
     // Reading and abstracting contract state
     const { cachedValue } = await contract.readState()
 

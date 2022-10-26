@@ -1,5 +1,5 @@
 import Arweave from 'arweave';
-import { WarpFactory } from 'warp-contracts'
+import { WarpFactory, defaultCacheOptions } from 'warp-contracts'
 
 export const arweave = Arweave.init({
   host: 'arweave.net',
@@ -7,4 +7,6 @@ export const arweave = Arweave.init({
   protocol: 'https'
 })
 
-export const warp = WarpFactory.forMainnet()
+// Creating local || mainnet Warp instance
+// Remove { ...defaultCacheOptions, inMemory: true } for logs and cache files
+export const warp = process.env.WARP === 'local' ? WarpFactory.forTestnet() : WarpFactory.forMainnet({ ...defaultCacheOptions, inMemory: true })
