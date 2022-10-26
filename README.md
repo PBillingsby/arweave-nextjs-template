@@ -9,6 +9,7 @@ Create Permaweb apps using Arweave and NextJS
 ## Usage
 For Bundlr, this template uses `node2`. To use `node1`, change references in `package.json` to `node1`.
 
+Create a `.env` and add `WARP=local` | `WARP=mainnet` depending on use.
 ### Wallet
 Add wallet.json to root of directory. <h4><strong>Make sure it is acknowledged by .gitignore!</strong></h4>
 ### Contract deployment test
